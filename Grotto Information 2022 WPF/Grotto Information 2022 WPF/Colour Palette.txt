@@ -1,0 +1,11 @@
+﻿Baby Blue
+#BFD7ED
+
+Blue Grotto
+#60A3D9
+
+Royal Blue
+#0074B7
+
+Navy Blue
+#003B73

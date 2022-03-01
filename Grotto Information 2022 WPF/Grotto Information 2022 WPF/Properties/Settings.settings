@@ -1,0 +1,120 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Grotto_Information_2022_WPF.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="giFTPUsername" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Ashleigh</Value>
+    </Setting>
+    <Setting Name="giFTPPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Jadzia1984!</Value>
+    </Setting>
+    <Setting Name="giFTPHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">server</Value>
+    </Setting>
+    <Setting Name="giFTPPort" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">22</Value>
+    </Setting>
+    <Setting Name="giFTPAdult" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="giFTPChild" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="giFTPFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/x22</Value>
+    </Setting>
+    <Setting Name="giFTPFamily" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="giGrottoCount" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
+    <Setting Name="giGrottoNumber" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="giSantaActor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Santa</Value>
+    </Setting>
+    <Setting Name="giElfActor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Elf Actor</Value>
+    </Setting>
+    <Setting Name="giElfName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Elf Name</Value>
+    </Setting>
+    <Setting Name="giGrottoName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Grotto Name</Value>
+    </Setting>
+    <Setting Name="giTimerFamily" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2000</Value>
+    </Setting>
+    <Setting Name="giTimerOverride" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2000</Value>
+    </Setting>
+    <Setting Name="giPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1234</Value>
+    </Setting>
+    <Setting Name="giBackupLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="giPicsDownloaded" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="giPicsSanta" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="giPicsGreenscreen" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/X22/GreenScreen</Value>
+    </Setting>
+    <Setting Name="giGrottoControllerLoc" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="giGoogleAPI" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="giSaveLocal" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="giSaveServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="giMonitor" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="giMainMonitor" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="giSecondMonitor" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="giUnique" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="giSavedXmas" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="giGSsetting" Type="System.String" Scope="User">
+      <Value Profile="(Default)">FTP</Value>
+    </Setting>
+    <Setting Name="giFTPSaved" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="giNameTimer" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="giMapSpeed" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">250</Value>
+    </Setting>
+    <Setting Name="giPhotoInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="giDisplayInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="gibackup" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="giBackupLocations" Type="System.String" Scope="User">
+      <Value Profile="(Default)">,,,,,,,,,</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

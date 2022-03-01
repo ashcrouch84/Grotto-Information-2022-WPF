@@ -1,0 +1,750 @@
+﻿<Window x:Class="Grotto_Information_2022_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        xmlns:local="clr-namespace:Grotto_Information_2022_WPF"
+        mc:Ignorable="d"
+        
+        Title="MainWindow" Height="1024" Width="1280" ResizeMode="NoResize" WindowStyle="SingleBorderWindow" Left="0" Top="0" Closing="Window_Closing">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="27*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl Name="tbMain" MouseDown="tbMain_SelectionChanged" SelectionChanged="tbMain_SelectionChanged_1" Grid.ColumnSpan="2">
+            <TabItem Name="tbInfo" Header="Grotto Information" FontSize="18" MouseDown="tbMain_SelectionChanged">
+                <Grid Background="#003B73">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="182*"/>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="14*"/>
+                        <ColumnDefinition Width="14*"/>
+                        <ColumnDefinition Width="810*"/>
+                        <ColumnDefinition Width="239*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Content="Grotto" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="78" Background="#60A3D9" FontSize="22"/>
+                    <Label Name ="lblGrottoNumber" Content="0" HorizontalAlignment="Center" Height="41" VerticalAlignment="Top" Width="26" Background="#60A3D9" FontSize="22"/>
+                    <Label Content="Grotto Name" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="143" Background="#BFD7ED" FontSize="22" Margin="114,0,0,0" Grid.ColumnSpan="5"/>
+                    <Label Name="lblGrottoName" Content="Letter Reading" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="165" Background="#BFD7ED" FontSize="22" Margin="32,0,0,0" Grid.Column="4"/>
+                    <Label Content="Santa Actor" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="138" Background="#60A3D9" FontSize="22" Margin="204,0,0,0" Grid.Column="4"/>
+                    <Label Name="lblSantaName" Content="Tim" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="108" Background="#60A3D9" FontSize="22" Margin="342,0,0,0" Grid.Column="4"/>
+                    <Label Content="Elf Name" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="100" Background="#BFD7ED" FontSize="22" Margin="465,0,0,0" Grid.Column="4"/>
+                    <Label Name="lblElfName" Content="Letter Reading" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="166" Background="#BFD7ED" FontSize="22" Margin="565,0,0,0" Grid.Column="4"/>
+                    <Label Content="Elf Actor" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="138" Background="#60A3D9" FontSize="22" Margin="736,0,0,0" Grid.Column="4" Grid.ColumnSpan="2"/>
+                    <Label Name="lblElfActor" Content="Molly" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="165" Background="#60A3D9" FontSize="22" Margin="64,0,0,0" Grid.Column="5"/>
+                    <Button Name ="cmdFamilyLeft" Content="Family Left" HorizontalAlignment="Left" Height="50" Margin="70,46,0,0" VerticalAlignment="Top" Width="159" FontSize="22" Click="cmdFamilyLeft_Click" Background="#FFBFD7ED" Grid.Column="5">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+
+                    <Button Name="cmdHidden" Content="Show Hidden Info" HorizontalAlignment="Left" Margin="49,123,0,0" VerticalAlignment="Top" Height="46" Width="180" Background="White" Click="cmdHidden_Click" Grid.Column="5">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Label Content="Family Name" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="143" Background="#BFD7ED" FontSize="22" Margin="0,55,0,0"/>
+                    <Label Name="lblFamilyName" Content="Test Name" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="212" Background="#BFD7ED" FontSize="22" Margin="143,55,0,0" Grid.ColumnSpan="5"/>
+                    <Label Name="lblSavedChristmas" Content="SAVED CHRISTMAS!!!" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="212" Background="#FF13F42C" FontSize="22" Margin="153,55,0,0" Grid.Column="4"/>
+                    <Label Name="lblRef" Content="Test Ref" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="212" Background="#BFD7ED" FontSize="22" Margin="370,55,0,0" Grid.Column="4"/>
+                    <GroupBox Name="gbPics" Background="#0074B7"  HorizontalAlignment="Left" Height="210" Header="" Margin="7,648,0,0" VerticalAlignment="Top" Width="301" Grid.ColumnSpan="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="21*"/>
+                                <ColumnDefinition Width="77*"/>
+                                <ColumnDefinition Width="191*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Name="cmdPicsDisplay" Content="Display" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="46" Width="138" Background="White" Grid.ColumnSpan="3" Click="cmdPicsDisplay_Click">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button Name="cmdPicsHide" Content="Hide" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" Height="46" Width="131" Background="White" Grid.Column="2" Click="cmdPicsHide_Click">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button Name="cmdPicsFlipLef" Content="Display Left" HorizontalAlignment="Left" VerticalAlignment="Center" Height="46" Width="138" Background="White" Grid.ColumnSpan="3" Click="cmdPicsFlipLef_Click">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button Name="cmdPicsFlipRight" Content="Display Right" HorizontalAlignment="Left" Margin="49,0,0,0" VerticalAlignment="Center" Height="46" Width="131" Background="White" Grid.Column="2" Click="cmdPicsFlipRight_Click">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button Name="cmdDisplayFlip" Content="Display and Flip" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top" Height="46" Width="268" Background="White" Grid.ColumnSpan="3" Click="cmdDisplayFlip_Click">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </Grid>
+                    </GroupBox>
+                    <ListView Name="lstPics" HorizontalAlignment="Left" Height="538" Margin="7,123,0,0" VerticalAlignment="Top" Width="304" Grid.ColumnSpan="5" SelectionChanged="lstPics_SelectionChanged">
+
+                    </ListView>
+                    <Button Name="cmdMap" Content="Display Map" HorizontalAlignment="Left" Margin="587,52,0,0" VerticalAlignment="Top" Height="46" Width="144" Background="White" Click="cmdMap_Click" Grid.Column="4" >
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <GroupBox Name="gbChild"  Background="#0074B7" Grid.Column="4" Header="Children Information" Margin="91,287,10,115" Grid.ColumnSpan="2" Foreground="White" FontWeight="Bold">
+                        <Grid Name="gridChild" Width="900" Height="729" Margin="0,0,-12,0" />
+                    </GroupBox>
+                    <GroupBox Name="gbAdult"  Background="#0074B7" Header="Adult Information" Margin="91,210,10,115" Grid.ColumnSpan="2" Foreground="White" FontWeight="Bold" Grid.Column="4">
+                        <Grid Name="gridAdult" Width="900" Height="729" Margin="0,0,-12,0" />
+                    </GroupBox>
+                    <Button Name="cmdShowChild" Content="Show Child Info" HorizontalAlignment="Left" Margin="183,123,0,0" VerticalAlignment="Top" Height="46" Width="180" Background="White" Grid.Column="4" Click="cmdShowChild_Click">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Name="cmdShowAdult" Content="Show Adult Info" HorizontalAlignment="Left" Margin="386,123,0,0" VerticalAlignment="Top" Height="46" Width="180" Background="White"  Grid.Column="4" Click="cmdShowAdult_Click">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Name="cmdShowFamily" Content="Show Family Info" HorizontalAlignment="Left" Margin="585,123,0,0" VerticalAlignment="Top" Height="46" Width="180" Background="White"  Grid.Column="4" Click="cmdShowFamily_Click">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <GroupBox Name="gbFamily"  Background="#0074B7" Header="Family Information" Margin="91,190,10,187" Grid.ColumnSpan="2" Foreground="White" FontWeight="Bold" Grid.Column="4">
+                        <Grid Name="gridFamily" Width="900" Height="729" Margin="0,0,-12,0" />
+                    </GroupBox>
+                    <GroupBox x:Name="gbHidden" Foreground="White" FontWeight="Bold" Header ="Hidden Information" HorizontalAlignment="Left" Height="702"  Background="#0074B7" Margin="115,210,0,0" VerticalAlignment="Top" Width="924" Grid.Column="4" Grid.ColumnSpan="2">
+                        <Grid x:Name="gridHidden" Width="900" Height="729" Margin="0,0,-12,0">
+                            <Label Name="lblAddress" Margin="594,0,0,676" HorizontalAlignment="Right" ></Label>
+                            <Label Name="lblPostcode" Margin="0,108,5,568" HorizontalAlignment="Right" ></Label>
+                        </Grid>
+                    </GroupBox>
+                    <Button Name="cmdShowNames" Content="Display Names" HorizontalAlignment="Left" Margin="731,52,0,0" VerticalAlignment="Top" Height="46" Width="144" Background="White"  Grid.Column="4" Grid.ColumnSpan="2" Click="cmdShowNames_Click" >
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+
+                </Grid>
+            </TabItem>
+            <TabItem Name="tbSettingss" Header="Settings" FontSize="18" Height="28" VerticalAlignment="Top" Margin="-2,-2,0,0" MouseDown="tbMain_SelectionChanged" HorizontalAlignment="Left" Width="80">
+                <Grid Background="#003B73">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="49*"/>
+                        <ColumnDefinition Width="12*"/>
+                        <ColumnDefinition Width="54*"/>
+                        <ColumnDefinition Width="173*"/>
+                        <ColumnDefinition Width="31*"/>
+                        <ColumnDefinition Width="948*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name ="cmdDownload" Content="Download Bookings for Today" Background="White" HorizontalAlignment="Left" Margin="6,589,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="52" Width="270" Click="cmdDownload_Click" Grid.Column="2" Grid.ColumnSpan="5">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <PasswordBox Name ="txtPassword" HorizontalAlignment="Left" Height="52" Margin="489,24,0,0" VerticalAlignment="Top" Width="295" KeyDown="txtPassword_KeyDown" Grid.Column="6"/>
+                    <Button Name ="cmdCheckPassword" Content="Check" Background="White" HorizontalAlignment="Left" Margin="805,24,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="52" Width="133" Click="cmdCheckPassword_Click" Grid.Column="6">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Name ="cmdSecondScreen" Content="Turn on Second Screen" Background="White" HorizontalAlignment="Left" Margin="6,660,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="52" Width="270" Grid.Column="2" Grid.ColumnSpan="5" Click="cmdSecondScreen_Click">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Name ="cmdStartTimer" Content="Start Search Timer" Background="White" HorizontalAlignment="Left" Margin="6,517,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="52" Width="270" Click="cmdStartTimer_Click" Grid.Column="2" Grid.ColumnSpan="5">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <TextBox Name="txtGrottoName" HorizontalAlignment="Left" Margin="47,38,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Height="39" Grid.Column="4" Grid.ColumnSpan="3"/>
+                    <Label Content="Grotto Name" HorizontalAlignment="Left" Height="39" Margin="27,38,0,0" VerticalAlignment="Top" Width="116" Grid.ColumnSpan="4" Grid.Column="1" Foreground="White"/>
+                    <Label Content="Grotto Number" HorizontalAlignment="Left" Height="39" Margin="3,82,0,0" VerticalAlignment="Top" Width="140" Grid.ColumnSpan="4" Grid.Column="1" Foreground="White"/>
+                    <ComboBox Name="cboGrottoNumber" HorizontalAlignment="Left" Margin="47,87,0,0" VerticalAlignment="Top" Width="200" Grid.Column="4" Grid.ColumnSpan="3"/>
+                    <TextBox Name="txtElfName" HorizontalAlignment="Left" Margin="47,136,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Height="39" Grid.Column="4" Grid.ColumnSpan="3"/>
+                    <Label Content="Elf Name" HorizontalAlignment="Left" Height="39" Margin="27,136,0,0" VerticalAlignment="Top" Width="116" Grid.ColumnSpan="4" Grid.Column="1" Foreground="White"/>
+                    <TextBox Name="txtElfActor" HorizontalAlignment="Left" Margin="47,192,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Height="39" Grid.Column="4" Grid.ColumnSpan="3"/>
+                    <Label Content="Elf Actor" HorizontalAlignment="Left" Height="39" Margin="27,192,0,0" VerticalAlignment="Top" Width="116" Grid.ColumnSpan="4" Grid.Column="1" Foreground="White"/>
+                    <TextBox Name="txtSantaActor" HorizontalAlignment="Left" Margin="47,250,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Height="39" Grid.Column="4" Grid.ColumnSpan="3"/>
+                    <Label Content="Santa Actor" HorizontalAlignment="Left" Height="39" Margin="27,250,0,0" VerticalAlignment="Top" Width="116" Grid.ColumnSpan="4" Grid.Column="1" Foreground="White"/>
+                    <Button Name ="cmdSaveDetails" Content="Save" Background="#FFFDFDFD" HorizontalAlignment="Left" Margin="2,302,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdSaveDetails_Click" Grid.Column="2" Grid.ColumnSpan="3">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Name ="cmdCancelDetails" Content="Cancel" Background="#FFFBD0DF" HorizontalAlignment="Left" Margin="102,302,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdCancelDetails_Click" Grid.Column="4" Grid.ColumnSpan="3">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <TabControl Name="tbSettings" HorizontalAlignment="Left" Height="648" Margin="70,102,0,0" VerticalAlignment="Top" Width="868" Grid.Column="6" KeyDown="tbSettings_KeyDown">
+                        <TabItem Header="Change Password">
+                            <Grid Background="#BFD7ED">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="280*"/>
+                                    <ColumnDefinition Width="17*"/>
+                                    <ColumnDefinition Width="134*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Name="txtNewPassword2" HorizontalAlignment="Left" Margin="260,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Height="39"/>
+                                <Label Content="New Password 2" HorizontalAlignment="Left" Height="39" Margin="56,103,0,0" VerticalAlignment="Top" Width="169"/>
+                                <Button Name ="cmdSavePassword" Content="Save" Background="White" HorizontalAlignment="Left" Margin="80,155,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdSavePassword_Click" >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <Button Name ="cmdCancelPassword" Content="Cancel" Background="#FFFFDBDB" HorizontalAlignment="Left" Margin="246,155,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdCancelPassword_Click" >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <TextBox Name="txtNewPassword1"  HorizontalAlignment="Left" Margin="260,59,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Height="39"/>
+                                <Label Content="New Password 1" HorizontalAlignment="Left" Height="39" Margin="56,59,0,0" VerticalAlignment="Top" Width="169"/>
+                                <TextBox Name="txtOldPassword"  HorizontalAlignment="Left" Margin="260,15,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Height="39"/>
+                                <Label Content="Old Password" HorizontalAlignment="Left" Height="39" Margin="56,15,0,0" VerticalAlignment="Top" Width="169"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Grotto Controller">
+                            <Grid Background="#BFD7ED">
+                                <TextBox Name="txtGrottocontrollerLoc" HorizontalAlignment="Left" Margin="18,74,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="631" Height="45"/>
+                                <Label Content="The folder where the Grotto Controller Monitors" HorizontalAlignment="Left" Height="39" Margin="18,30,0,0" VerticalAlignment="Top" Width="522"/>
+                                <Button Name ="cmdGrottocontrollerLoc" Content="Browse" Background="White" HorizontalAlignment="Left" Margin="675,74,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdGrottocontrollerLoc_Click"  >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Timer Interval">
+                            <Grid Background="#BFD7ED">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="129*"/>
+                                    <ColumnDefinition Width="32*"/>
+                                    <ColumnDefinition Width="16*"/>
+                                    <ColumnDefinition Width="685*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Name="txtFamilyTimerInterval" HorizontalAlignment="Left" Margin="10,67,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Height="39" Grid.Column="2" Grid.ColumnSpan="2"/>
+                                <Label Content="Family Finder Timer" HorizontalAlignment="Left" Height="39" Margin="0,67,0,0" VerticalAlignment="Top" Width="186" Grid.ColumnSpan="4"/>
+                                <Button Name ="cmdSaveFamilyTimerInterval" Content="Save" Background="White" HorizontalAlignment="Left" Margin="224,61,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdSaveFamilyTimerInterval_Click" Grid.Column="3">
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <Button Name ="cmdCancelFamilyFinderInterval" Content="Cancel" Background="#FFFFE1EB" HorizontalAlignment="Left" Margin="390,61,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdCancelFamilyFinderInterval_Click" Grid.Column="3" >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <TextBox Name="txtOverrideTimerInterval" HorizontalAlignment="Left" Margin="29,152,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Height="39" Grid.Column="3"/>
+                                <Label Content="Override Timer Interval" HorizontalAlignment="Left" Height="39" Margin="-5,152,0,0" VerticalAlignment="Top" Width="199" Grid.ColumnSpan="4"/>
+                                <Button Name ="cmdSaveOverrideTimer" Content="Save" Background="White" HorizontalAlignment="Left" Margin="241,145,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdSaveOverrideTimer_Click" Grid.Column="3" >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <Button Name ="cmdCancelOverrideTimer" Content="Cancel" Background="#FFFFDBE7" HorizontalAlignment="Left" Margin="407,145,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" RenderTransformOrigin="0.5,0.5" Click="cmdCancelOverrideTimer_Click" Grid.Column="3">
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                    <Button.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform AngleX="-1.656"/>
+                                            <RotateTransform/>
+                                            <TranslateTransform X="0.65"/>
+                                        </TransformGroup>
+                                    </Button.RenderTransform>
+                                </Button>
+                                <TextBox Name="txtNameTimerInterval" HorizontalAlignment="Left" Margin="80,219,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Height="39" Grid.Column="3"/>
+                                <Label Content="Display Name Timer Interval" HorizontalAlignment="Left" Height="39" Margin="-5,219,0,0" VerticalAlignment="Top" Width="241" Grid.ColumnSpan="4"/>
+                                <Button Name ="cmdSaveNameTimer" Content="Save" Background="White" HorizontalAlignment="Left" Margin="292,212,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145"  Grid.Column="3" Click="cmdSaveNameTimer_Click" >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <Button Name ="cmdCancelNameTimer" Content="Cancel" Background="#FFFFDBE7" HorizontalAlignment="Left" Margin="458,212,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" RenderTransformOrigin="0.5,0.5"  Grid.Column="3" Click="cmdCancelNameTimer_Click">
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                    <Button.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform AngleX="-1.656"/>
+                                            <RotateTransform/>
+                                            <TranslateTransform X="0.65"/>
+                                        </TransformGroup>
+                                    </Button.RenderTransform>
+                                </Button>
+                                <TextBox Name="txtPhotoTimer" HorizontalAlignment="Left" Margin="80,287,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Height="39" Grid.Column="3" TextChanged="txtNameTimerInterval_Copy_TextChanged"/>
+                                <Label Content="Photo Timer Interval" HorizontalAlignment="Left" Height="39" Margin="-5,287,0,0" VerticalAlignment="Top" Width="241" Grid.ColumnSpan="4"/>
+                                <Button Name ="cmdSavePhotoInterval" Content="Save" Background="White" HorizontalAlignment="Left" Margin="292,280,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145"  Grid.Column="3" Click="cmdSavePhotoInterval_Click"  >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <Button Name ="cmdCancelPhotoInterval" Content="Cancel" Background="#FFFFDBE7" HorizontalAlignment="Left" Margin="458,280,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" RenderTransformOrigin="0.5,0.5"  Grid.Column="3" Click="cmdCancelPhotoInterval_Click" >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                    <Button.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform AngleX="-1.656"/>
+                                            <RotateTransform/>
+                                            <TranslateTransform X="0.65"/>
+                                        </TransformGroup>
+                                    </Button.RenderTransform>
+                                </Button>
+                                <TextBox Name="txtDisplaySantaPic" HorizontalAlignment="Left" Margin="80,354,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Height="39" Grid.Column="3" TextChanged="txtNameTimerInterval_Copy_TextChanged"/>
+                                <Label Content="Display Santa Photo Interval" HorizontalAlignment="Left" Height="39" Margin="-5,354,0,0" VerticalAlignment="Top" Width="241" Grid.ColumnSpan="4"/>
+                                <Button Name ="cmdSaveSantaPicInterval" Content="Save" Background="White" HorizontalAlignment="Left" Margin="292,347,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145"  Grid.Column="3" Click="cmdSaveSantaPicInterval_Click"  >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <Button Name ="cmdCancelSantaPicInterval" Content="Cancel" Background="#FFFFDBE7" HorizontalAlignment="Left" Margin="458,347,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" RenderTransformOrigin="0.5,0.5"  Grid.Column="3" Click="cmdCancelSantaPicInterval_Click"  >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                    <Button.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform AngleX="-1.656"/>
+                                            <RotateTransform/>
+                                            <TranslateTransform X="0.65"/>
+                                        </TransformGroup>
+                                    </Button.RenderTransform>
+                                </Button>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Save Location">
+                            <Grid Background="#BFD7ED">
+                                <TextBox Name="txtLocalSave" HorizontalAlignment="Left" Margin="187,80,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="649" Height="39"/>
+                                <Label Content="Local Save Location" HorizontalAlignment="Left" Height="39" Margin="16,80,0,0" VerticalAlignment="Top" Width="166"/>
+                                <Button Name ="cmdLocalSave" Content="Browse" Background="White" HorizontalAlignment="Left" Margin="394,124,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdLocalSave_Click"  >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <TextBox Name="txtServerSave" HorizontalAlignment="Left" Margin="205,248,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="649" Height="39"/>
+                                <Label Content="Server Save Location" HorizontalAlignment="Left" Height="39" Margin="18,248,0,0" VerticalAlignment="Top" Width="182"/>
+                                <Button Name ="cmdServerSave" Content="Browse" Background="White" HorizontalAlignment="Left" Margin="412,292,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdServerSave_Click"  >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <Label Content="Location of the onsight server" HorizontalAlignment="Left" Height="39" Margin="16,209,0,0" VerticalAlignment="Top" Width="836"/>
+                                <TextBox Name="txtSavedXmas" HorizontalAlignment="Left" Margin="320,365,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="534" Height="39"/>
+                                <Label Content="Saved Christmas Location" HorizontalAlignment="Left" Height="39" Margin="83,365,0,0" VerticalAlignment="Top" Width="232"/>
+                                <Button Name ="cmdSavedXmas" Content="Browse" Background="White" HorizontalAlignment="Left" Margin="412,409,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdSavedXmas_Click" >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="FTP Details">
+                            <Grid Background="#BFD7ED">
+                                <TextBox Name="txtFTPUsername" HorizontalAlignment="Left" Margin="169,38,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Height="39"/>
+                                <Label Content="Username" HorizontalAlignment="Left" Height="39" Margin="34,38,0,0" VerticalAlignment="Top" Width="116"/>
+                                <TextBox Name="txtFTPPassword" HorizontalAlignment="Left" Margin="169,82,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Height="39"/>
+                                <Label Content="Password" HorizontalAlignment="Left" Height="39" Margin="34,82,0,0" VerticalAlignment="Top" Width="116"/>
+                                <TextBox x:Name="txtFTPHost" HorizontalAlignment="Left" Margin="169,126,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Height="39"/>
+                                <Label Content="Host/Server" HorizontalAlignment="Left" Height="39" Margin="34,126,0,0" VerticalAlignment="Top" Width="116"/>
+                                <TextBox Name="txtFTPPort" HorizontalAlignment="Left" Margin="169,172,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Height="39"/>
+                                <Label Content="Port" HorizontalAlignment="Left" Height="39" Margin="34,172,0,0" VerticalAlignment="Top" Width="116"/>
+                                <TextBox Name="txtFTPChild" HorizontalAlignment="Left" Margin="566,38,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Height="39"/>
+                                <Label Content="Child Folder" HorizontalAlignment="Left" Height="39" Margin="431,38,0,0" VerticalAlignment="Top" Width="116"/>
+                                <TextBox Name="txtFTPAdult" HorizontalAlignment="Left" Margin="566,82,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Height="39"/>
+                                <Label Content="Adult Folder" HorizontalAlignment="Left" Height="39" Margin="431,82,0,0" VerticalAlignment="Top" Width="116"/>
+                                <TextBox Name="txtFTPFamily" HorizontalAlignment="Left" Margin="566,126,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Height="39"/>
+                                <Label Content="Family Folder" HorizontalAlignment="Left" Height="39" Margin="431,126,0,0" VerticalAlignment="Top" Width="116"/>
+                                <Button Name ="cmdSaveFTP" Content="Save" Background="White" HorizontalAlignment="Left" Margin="233,292,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdSaveFTP_Click">
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <Button Name ="cmdCancelFTP" Content="Cancel" Background="#FFFFD3E2" HorizontalAlignment="Left" Margin="402,292,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdCancelFTP_Click">
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <TextBox Name="txtFTPFolder" HorizontalAlignment="Left" Margin="566,172,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Height="39"/>
+                                <Label Content="Remote Folder" HorizontalAlignment="Left" Height="39" Margin="431,172,0,0" VerticalAlignment="Top" Width="116"/>
+                                <TextBox Name="txtFTPSaved" HorizontalAlignment="Left" Margin="566,226,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Height="39"/>
+                                <Label Content="Saved Xmas Folder" HorizontalAlignment="Left" Height="39" Margin="381,226,0,0" VerticalAlignment="Top" Width="166"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Grotto Quantity">
+                            <Grid Background="#BFD7ED">
+                                <TextBox Name="txtGrottoCount" HorizontalAlignment="Left" Margin="142,7,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Height="39"/>
+                                <Label Content="Grotto Count" HorizontalAlignment="Left" Height="39" Margin="7,7,0,0" VerticalAlignment="Top" Width="116"/>
+                                <Button Name ="cmdSaveGrottoCount" Content="Save" Background="White" HorizontalAlignment="Left" Margin="78,63,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdSaveGrottoCount_Click">
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </Grid>
+                        </TabItem>
+
+                        <TabItem Header="Picture Info">
+                            <Grid Background="#BFD7ED">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="226*"/>
+                                    <ColumnDefinition Width="205*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox x:Name="txtPicDownload" HorizontalAlignment="Left" Margin="23,54,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="631" Height="45" Grid.ColumnSpan="2"/>
+                                <Label Content="Where Pictures are downloaded too" HorizontalAlignment="Left" Height="39" Margin="23,10,0,0" VerticalAlignment="Top" Width="522" Grid.ColumnSpan="2"/>
+                                <Button x:Name ="cmdPicDownload" Content="Browse" Background="White" HorizontalAlignment="Left" Margin="228,54,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdPicDownload_Click" Grid.Column="1" >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <TextBox Name="txtPicsSanta" HorizontalAlignment="Left" Margin="23,170,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="631" Height="45" Grid.ColumnSpan="2"/>
+                                <Label Content="Where Santa's Pictures are Stored to show on Projector" HorizontalAlignment="Left" Height="39" Margin="23,126,0,0" VerticalAlignment="Top" Width="522" Grid.ColumnSpan="2"/>
+                                <Button Name ="cmdPicsSanta" Content="Browse" Background="White" HorizontalAlignment="Left" Margin="228,170,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdPicsSanta_Click" Grid.Column="1"  >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <TextBox Name="txtPicsGreenscreen" HorizontalAlignment="Left" Margin="23,281,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="631" Height="45" Grid.ColumnSpan="2"/>
+                                <Label Content="Where Greenscreen Pictures are stored" HorizontalAlignment="Left" Height="39" Margin="23,237,0,0" VerticalAlignment="Top" Width="522" Grid.ColumnSpan="2"/>
+                                <Button Name ="cmdPicsGreenscreen" Content="Browse" Background="White" HorizontalAlignment="Left" Margin="228,281,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdPicsGreenscreen_Click" Grid.Column="1">
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <RadioButton Name ="rbGSFTP" Content="GreenScreen on FTP" HorizontalAlignment="Left" Height="29" Margin="142,359,0,0" VerticalAlignment="Top" Width="196" FontSize="14" RenderTransformOrigin="0.5,0.5" Checked="rbGSFTP_Checked">
+                                    <RadioButton.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </RadioButton.RenderTransform>
+                                </RadioButton>
+                                <RadioButton Name ="rbGSLocal" Content="GreenScreen on Local" HorizontalAlignment="Left" Height="29" Margin="142,417,0,0" VerticalAlignment="Top" Width="196" FontSize="14" RenderTransformOrigin="0.5,0.5" Checked="rbGSLocal_Checked">
+                                    <RadioButton.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </RadioButton.RenderTransform>
+                                </RadioButton>
+                                <Button Name ="cmdSaveGS" Content="Save" Background="White" HorizontalAlignment="Left" Margin="228,344,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="46" Width="145" Grid.Column="1" Click="cmdSaveGS_Click">
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Questions">
+                            <Grid Background="#BFD7ED" Height="727">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="617*"/>
+                                    <ColumnDefinition Width="23*"/>
+                                    <ColumnDefinition Width="222*"/>
+                                </Grid.ColumnDefinitions>
+                                <ListBox Name="lstChildShowQuestions" HorizontalAlignment="Left" Height="157" Margin="58,43,0,0" VerticalAlignment="Top" Width="297" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                                <ListBox Name="lstChildHideQuestions" HorizontalAlignment="Left" Height="157" Margin="380,43,0,0" VerticalAlignment="Top" Width="335" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="3"/>
+                                <ListBox Name="lstAdultShowQuestions" HorizontalAlignment="Left" Height="157" Margin="58,205,0,0" VerticalAlignment="Top" Width="297" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                                <ListBox Name="lstAdultHideQuestions" HorizontalAlignment="Left" Height="157" Margin="380,205,0,0" VerticalAlignment="Top" Width="335" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="3"/>
+                                <ListBox Name="lstFamilyShowQuestions" HorizontalAlignment="Left" Height="157" Margin="58,367,0,0" VerticalAlignment="Top" Width="297" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                                <ListBox Name="lstFamilyHideQuestions" HorizontalAlignment="Left" Height="157" Margin="380,367,0,0" VerticalAlignment="Top" Width="335" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="3"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Backup Location">
+                            <Grid Background="#BFD7ED">
+                                <TextBox Name="txtBackup" HorizontalAlignment="Left" Margin="166,3,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="484" Height="39"/>
+                                <Label Content="Backup Location" HorizontalAlignment="Left" Height="39" Margin="5,3,0,0" VerticalAlignment="Top" Width="161"/>
+                                <Button Name ="cmdBackupBrowse" Content="Browse" Background="White" HorizontalAlignment="Left" Margin="666,0,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="146" Click="cmdBackupBrowse_Click" >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <TextBox Name="txtNearby1" HorizontalAlignment="Left" Margin="166,87,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="484" Height="39"/>
+                                <Label Content="Nearby Grotto 1" HorizontalAlignment="Left" Height="39" Margin="5,87,0,0" VerticalAlignment="Top" Width="161"/>
+                                <Button Name ="cmdBackup1" Content="Browse" Background="White" HorizontalAlignment="Left" Margin="666,84,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="146" Click="cmdBackup1_Click">
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <TextBox Name="txtNearby2" HorizontalAlignment="Left" Margin="166,137,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="484" Height="39"/>
+                                <Label Content="Nearby Grotto 2" HorizontalAlignment="Left" Height="39" Margin="5,137,0,0" VerticalAlignment="Top" Width="161"/>
+                                <Button Name ="cmdBackup2" Content="Browse" Background="White" HorizontalAlignment="Left" Margin="666,134,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="146" Click="cmdBackup2_Click"  >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <TextBox Name="txtNearby3" HorizontalAlignment="Left" Margin="166,187,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="484" Height="39"/>
+                                <Label Content="Nearby Grotto 3" HorizontalAlignment="Left" Height="39" Margin="5,187,0,0" VerticalAlignment="Top" Width="161"/>
+                                <Button Name ="cmdBackup3" Content="Browse" Background="White" HorizontalAlignment="Left" Margin="666,184,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="146" Click="cmdBackup3_Click"  >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <TextBox Name="txtNearby4" HorizontalAlignment="Left" Margin="166,237,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="484" Height="39"/>
+                                <Label Content="Nearby Grotto 4" HorizontalAlignment="Left" Height="39" Margin="5,237,0,0" VerticalAlignment="Top" Width="161"/>
+                                <Button Name ="cmdBackup4" Content="Browse" Background="White" HorizontalAlignment="Left" Margin="666,234,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="146" Click="cmdBackup4_Click"  >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <TextBox Name="txtNearby5" HorizontalAlignment="Left" Margin="166,287,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="484" Height="39"/>
+                                <Label Content="Nearby Grotto 5" HorizontalAlignment="Left" Height="39" Margin="5,287,0,0" VerticalAlignment="Top" Width="161"/>
+                                <Button Name ="cmdBackup5" Content="Browse" Background="White" HorizontalAlignment="Left" Margin="666,284,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="146" Click="cmdBackup5_Click"  >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <TextBox Name="txtNearby6" HorizontalAlignment="Left" Margin="166,337,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="484" Height="39"/>
+                                <Label Content="Nearby Grotto 6" HorizontalAlignment="Left" Height="39" Margin="5,337,0,0" VerticalAlignment="Top" Width="161"/>
+                                <Button Name ="cmdBackup6" Content="Browse" Background="White" HorizontalAlignment="Left" Margin="666,334,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="146" Click="cmdBackup6_Click"  >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <TextBox Name="txtNearby7" HorizontalAlignment="Left" Margin="166,387,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="484" Height="39"/>
+                                <Label Content="Nearby Grotto 7" HorizontalAlignment="Left" Height="39" Margin="5,387,0,0" VerticalAlignment="Top" Width="161"/>
+                                <Button Name ="cmdBackup7" Content="Browse" Background="White" HorizontalAlignment="Left" Margin="666,384,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="146" Click="cmdBackup7_Click"  >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <TextBox Name="txtNearby8" HorizontalAlignment="Left" Margin="166,437,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="484" Height="39"/>
+                                <Label Content="Nearby Grotto 8" HorizontalAlignment="Left" Height="39" Margin="5,437,0,0" VerticalAlignment="Top" Width="161"/>
+                                <Button Name ="cmdBackup8" Content="Browse" Background="White" HorizontalAlignment="Left" Margin="666,434,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="146" Click="cmdBackup8_Click" >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <TextBox Name="txtNearby9" HorizontalAlignment="Left" Margin="166,486,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="484" Height="39"/>
+                                <Label Content="Nearby Grotto 9" HorizontalAlignment="Left" Height="39" Margin="5,486,0,0" VerticalAlignment="Top" Width="161"/>
+                                <Button Name ="cmdBackup9" Content="Browse" Background="White" HorizontalAlignment="Left" Margin="666,483,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="146" Click="cmdBackup9_Click"  >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <TextBox Name="txtNearby10" HorizontalAlignment="Left" Margin="166,536,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="484" Height="39"/>
+                                <Label Content="Nearby Grotto 10" HorizontalAlignment="Left" Height="39" Margin="5,536,0,0" VerticalAlignment="Top" Width="161"/>
+                                <Button Name ="cmdBackup10" Content="Browse" Background="White" HorizontalAlignment="Left" Margin="666,533,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="146" Click="cmdBackup10_Click"  >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Screen Setup">
+                            <Grid Background=" #BFD7ED">
+                                <TextBox Name="txtMainDisplay" HorizontalAlignment="Left" Margin="264,36,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Height="39"/>
+                                <Label Content="Main Monitor Number" HorizontalAlignment="Left" Height="39" Margin="29,36,0,0" VerticalAlignment="Top" Width="200"/>
+                                <Button Name ="cmdMainDisplay" Content="Save" Background="White" HorizontalAlignment="Left" Margin="84,88,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdMainDisplay_Click" >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <TextBox Name="txtSecondDisplay" HorizontalAlignment="Left" Margin="264,178,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Height="39"/>
+                                <Label Content="Secondary Display Number" HorizontalAlignment="Left" Height="39" Margin="10,178,0,0" VerticalAlignment="Top" Width="249"/>
+                                <Button Name ="cmdSecondDisplay" Content="Save" Background="White" HorizontalAlignment="Left" Margin="84,230,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdSecondDisplay_Click"  >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Monitor Location">
+                            <Grid Background=" #BFD7ED">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="47*"/>
+                                    <ColumnDefinition Width="465*"/>
+                                    <ColumnDefinition Width="350*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Name="txtMonitor" HorizontalAlignment="Left" Margin="140,80,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="649" Height="75" Grid.Column="1" Grid.ColumnSpan="2"/>
+                                <Label Content="Monitor Location" HorizontalAlignment="Left" Height="39" Margin="26,80,0,0" VerticalAlignment="Top" Width="161" Grid.ColumnSpan="2"/>
+                                <Button Name ="cmdMonitor" Content="Browse" Background="White" HorizontalAlignment="Left" Margin="311,176,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="146" Click="cmdMonitor_Click" Grid.Column="1" >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Google Maps">
+                            <Grid Background="#BFD7ED">
+                                <TextBox Name="txtGoogleAPI" HorizontalAlignment="Left" Margin="187,80,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="649" Height="39"/>
+                                <Label Content="Google API Key" HorizontalAlignment="Left" Height="39" Margin="26,80,0,0" VerticalAlignment="Top" Width="161"/>
+                                <Button Name ="cmdGoogleAPI" Content="Save" Background="White" HorizontalAlignment="Left" Margin="394,124,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="45" Width="145" Click="cmdGoogleAPI_Click" >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                    <Button Name ="cmdBreak" Content="Break" Background="White" HorizontalAlignment="Left" Margin="70,24,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="52" Width="133" Grid.Column="6" Click="cmdBreak_Click">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Name ="cmdOpenGrotto" Content="Open" Background="White" HorizontalAlignment="Left" Margin="239,25,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="52" Width="133"  Grid.Column="6" Click="cmdOpenGrotto_Click">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <GroupBox Name="gbProgress" Background="Azure" HorizontalAlignment="Left" Height="140" Header="Downloading Personal Information" Margin="12,750,0,0" VerticalAlignment="Top" Width="1236" Grid.Column="1" Grid.ColumnSpan="6">
+                        <Grid Height="148">
+                            <Label Content="Currently Downloading Updated Information form Server, Please Wait" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Top" FontSize="30" Grid.Column="1"/>
+                            <ProgressBar Name="pbDownload" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="32" Margin="10,0,0,0" VerticalAlignment="Center" Width="1188"/>
+                        </Grid>
+                    </GroupBox>
+                    <ComboBox Name ="cboDay" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="23,457,0,0" VerticalAlignment="Top" Width="92"/>
+                    <ComboBox Name="cboMonth" Grid.Column="4" HorizontalAlignment="Left" Margin="10,457,0,0" VerticalAlignment="Top" Width="92"/>
+                    <ComboBox Name="cboYear" Grid.Column="4" HorizontalAlignment="Left" Margin="118,457,0,0" VerticalAlignment="Top" Width="123" Grid.ColumnSpan="3"/>
+                    <Label Grid.Column="4" Content="Date" HorizontalAlignment="Left" Margin="10,418,0,0" VerticalAlignment="Top" Background="#FFFFFCFC" Width="92"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Name="tbNoInternet" Header="No Internet" FontSize="18" MouseDown="tbMain_SelectionChanged">
+                <Grid Background="#003B73">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="94*"/>
+                        <ColumnDefinition Width="543*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="txtBookingRef" HorizontalAlignment="Left" Margin="169,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" Height="39" KeyDown="txtBookingRef_KeyDown" Grid.ColumnSpan="2"/>
+                    <Label Content="Booking Reference" HorizontalAlignment="Left" Height="39" Margin="0,38,0,0" VerticalAlignment="Top" Width="164" Foreground="White"/>
+                    <Button Name ="cmdCheckRef" Content="Check" Background="White" HorizontalAlignment="Left" Margin="270,38,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Normal" Height="39" Width="133" Click="cmdCheckRef_Click" Grid.Column="1">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
